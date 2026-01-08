@@ -29,7 +29,6 @@ services:
       - ./config:/tmp/docker-mailserver
       - /etc/localtime:/etc/localtime:ro
       - ./secrets/tls:/tls:ro
-      - ./scripts:/scripts-auto:ro
     cap_add:
       - NET_ADMIN
     networks:
