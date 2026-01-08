@@ -1,6 +1,6 @@
 docker run --rm \
   -v /opt/auto-deploy/mailserver/certs:/etc/letsencrypt \
-  -v /opt/auto-deploy/mailserver/cloudflare.ini:/cloudflare.ini:ro \
+  -v /opt/auto-deploy/mailserver/scripts/cloudflare.ini:/cloudflare.ini:ro \
   certbot/dns-cloudflare certonly \
   --dns-cloudflare \
   --dns-cloudflare-credentials /cloudflare.ini \

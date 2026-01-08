@@ -13,6 +13,16 @@ services:
       - "25:25"
       - "587:587"
       - "993:993"
+    environment:
+      ENABLE_SPAMASSASSIN: 0
+      ENABLE_CLAMAV: 0
+      ENABLE_FAIL2BAN: 1
+      ENABLE_POSTGREY: 0
+      ONE_DIR: 1
+      PERMIT_DOCKER: network
+      SSL_TYPE: manual
+      SSL_CERT_PATH: /tls/mail.thiagosol.com-cert.pem
+      SSL_KEY_PATH: /tls/mail.thiagosol.com-key.pem
     volumes:
       - ./data/maildata:/var/mail
       - ./data/mailstate:/var/mail-state
@@ -20,6 +30,8 @@ services:
       - ./config:/tmp/docker-mailserver
       - /etc/localtime:/etc/localtime:ro
       - ./secrets/tls:/tls:ro
+      - ./scripts:/scripts-auto:ro
+      - mailserver-cloudflare.ini:/cloudflare.ini:ro
     cap_add:
       - NET_ADMIN
     networks:
