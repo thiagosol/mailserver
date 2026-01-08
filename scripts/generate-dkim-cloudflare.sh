@@ -24,7 +24,7 @@ echo "➡️  COLE ISSO NO CLOUDFLARE"
 echo "=============================="
 echo "Tipo: TXT"
 echo "Nome: mail._domainkey"
-echo -n "Valor: "
+echo -n "Valor: v=DKIM1; h=sha256; k=rsa; "
 
 # remove aspas, parênteses e quebras de linha
 sed -e '1d' \
