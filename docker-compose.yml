@@ -8,7 +8,6 @@ services:
     restart: always
     hostname: mail
     domainname: thiagosol.com
-    env_file: mailserver.env
     ports:
       - "25:25"
       - "587:587"
